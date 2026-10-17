@@ -1,0 +1,66 @@
+{
+  "name": "youtube-plugin",
+  "version": "2.0.0",
+  "description": "Multi-account YouTube MCP server for channel operations, video publishing, analytics, live streaming, and local media processing.",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "youtube-plugin": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('node:fs').chmodSync('dist/index.js', '755')\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "npm run build && vitest run",
+    "test:contract": "npm run build && vitest run tests/stdio.test.ts",
+    "test:watch": "vitest",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "auth": "node dist/auth-setup.js",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "youtube",
+    "claude-code",
+    "cursor",
+    "ai-tools",
+    "model-context-protocol",
+    "youtube-api",
+    "channel-management",
+    "youtube-analytics",
+    "live-streaming",
+    "ffmpeg"
+  ],
+  "author": "saksham1991999",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saksham1991999/youtube-plugin.git"
+  },
+  "homepage": "https://github.com/saksham1991999/youtube-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/saksham1991999/youtube-plugin/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "google-auth-library": "^10.5.0",
+    "googleapis": "^170.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "eslint": "^10.13.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^4.1.12"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
